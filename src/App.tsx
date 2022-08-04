@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useMemo } from "react";
+import { useRoutes } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import WithProviders from "./context/providers";
+import AllPages from "./routes";
+import { useAppState, useInitApp } from "./utils/hook";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const appStyle = {
+  width: "100vw",
+  height: "100vh",
+  maxWidth: "100%",
+};
+
+const App = WithProviders(() => {
+  useInitApp();
+  const { app } = useAppState();
+  const theme = useMemo(
+    () => ({
+      primary: app.primaryColor,
+      secondary: app.secondaryColor,
+    }),
+    [app.primaryColor, app.secondaryColor]
   );
-}
-
+  const all_pages = useRoutes(AllPages());
+  return (
+    <ThemeProvider theme={theme}>
+      <div style={appStyle}>{all_pages}</div>
+    </ThemeProvider>
+  );
+});
 export default App;
