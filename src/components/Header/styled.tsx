@@ -34,9 +34,11 @@ export const HeaderLogoPanel = styled(Link)`
   display: flex;
   align-items: center;
   margin-top: 2px;
+  width: 70px;
+  height: 70px;
   > img {
-    width: 114px;
-    height: 30px;
+    max-width: 100%;
+    max-height: 100%;
   }
 `;
 

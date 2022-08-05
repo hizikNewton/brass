@@ -1,4 +1,4 @@
-import React, { createContext, ProviderProps, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import { AppDispatch, reducer } from "../reducer";
 import initState from "../states/index";
 
@@ -10,19 +10,18 @@ export const AppContext = createContext<{
   dispatch: () => {},
 });
 
-const WithProviders =
-  (Comp: React.ComponentType) => (props: React.ComponentProps<any>) => {
-    const [providers, dispatch] = useReducer(reducer, initState);
-    return (
-      <AppContext.Provider
-        value={{
-          state: providers,
-          dispatch,
-        }}
-      >
-        <Comp {...props} />
-      </AppContext.Provider>
-    );
-  };
+const withProviders = (Comp: React.ComponentType) => (props: any) => {
+  const [providers, dispatch] = useReducer(reducer, initState);
+  return (
+    <AppContext.Provider
+      value={{
+        state: providers,
+        dispatch,
+      }}
+    >
+      <Comp {...props} />
+    </AppContext.Provider>
+  );
+};
 
-export default WithProviders;
+export default withProviders;

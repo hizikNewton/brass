@@ -24,10 +24,15 @@ const get404Image = () => {
   return isMobile() ? MobileBlue404Image : PCBlue404Image;
 };
 
-export default () => (
-  <Content>
-    <NotFoundPanel className="container">
-      <NotFoundImage src={get404Image()} alt="404" />
-    </NotFoundPanel>
-  </Content>
-);
+const NotFound404 = () => {
+  console.log("404");
+  return (
+    <Content>
+      <NotFoundPanel className="container">
+        <NotFoundImage src={get404Image()} alt="404" />
+      </NotFoundPanel>
+    </Content>
+  );
+};
+
+export default NotFound404;

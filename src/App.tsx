@@ -13,6 +13,7 @@ const appStyle = {
 
 const App = WithProviders(() => {
   useInitApp();
+
   const { app } = useAppState();
   const theme = useMemo(
     () => ({

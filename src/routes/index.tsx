@@ -1,6 +1,6 @@
-import { Navigate } from "react-router-dom";
 import { lazy } from "react";
 import AppLayout from "components/shared/appLayout/AppLayout";
+import { Navigate } from "react-router-dom";
 
 const Home = lazy(() => import("../pages/Home"));
 const NotFoundPage = lazy(() => import("../pages/404"));

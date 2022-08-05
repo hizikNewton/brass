@@ -46,7 +46,7 @@ const LanguageDropdown = () => {
     app: { language },
   } = useAppState();
 
-  const [showLanguage, setShowLanguage] = useState(true);
+  const [showLanguage, setShowLanguage] = useState(false);
   const [languageLeft, setLanguageLeft] = useState(0);
   const [languageTop, setLanguageTop] = useState(0);
   const { t, i18n } = useTranslation();

@@ -78,3 +78,11 @@ declare module "*.scss" {
   const content: string;
   export default content;
 }
+
+type WithoutNullableKeys<Type> = {
+  [Key in keyof Type]-?: WithoutNullableKeys<NonNullable<Type[Key]>>;
+};
+
+type Concrete<Type> = {
+  [Key in keyof Type]-?: Type[Key];
+};
