@@ -55,11 +55,14 @@ export const initiateTransfer = async (transferDT: TransferParams) => {
     ...transferDT,
     amount: parseInt(amount?.toString()),
   });
-  console.log(res, "response");
   return res.data.data;
 };
 
-export const getAllTransfer = async () => {
-  const res = await axiosIns.get(`transfers`);
+export const getAllTransfer = async ({ page }: { page: number }) => {
+  const res = await axiosIns.get(`transfers`, {
+    params: {
+      page,
+    },
+  });
   return res.data;
 };

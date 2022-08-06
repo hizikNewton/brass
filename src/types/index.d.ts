@@ -86,3 +86,14 @@ type WithoutNullableKeys<Type> = {
 type Concrete<Type> = {
   [Key in keyof Type]-?: Type[Key];
 };
+
+type AccountInfo = {
+  bankName?: string;
+  accountNumber?: number;
+  amount?: number;
+  accountName?: string;
+  narration: string;
+  debit_currency: "NGN";
+};
+
+type validationType = "accountNumber" | "amount";
