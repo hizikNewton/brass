@@ -15,7 +15,7 @@ export const isScreenSmallerThan1200 = () => window.innerWidth <= 1200;
 
 export const isScreenSmallerThan1440 = () => window.innerWidth <= 1440;
 
-export default {
+const screen = {
   isMobile,
   isSmallMobile,
   isMediumMobile,
@@ -23,3 +23,5 @@ export default {
   isScreen750to1440,
   isScreenSmallerThan1200,
 };
+
+export default screen;
