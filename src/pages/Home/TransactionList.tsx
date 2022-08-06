@@ -33,18 +33,18 @@ const objRepr: { [x: string]: string } = {
 };
 export const TransactionList = () => {
   const [txList, setTxList] = useState<Array<Tx>>([]);
-  const [page, setPage] = useState<number>(1);
+  const [page] = useState<number>(1);
   const [selected, setSelected] = useState<number>();
   useEffect(() => {
     getAllTransfer({ page }).then((res) => {
-      const { data, meta } = res;
+      const { data } = res;
       if (data && data.length !== 0) {
         setTxList(data);
       } else {
         setTxList(sampleData);
       }
     });
-  }, []);
+  }, [page]);
 
   const handleClick = (e: any, id: number) => {
     setSelected(id);
@@ -69,7 +69,8 @@ export const TransactionList = () => {
               ({ id, full_name, created_at, amount, bank_name, reference }) => (
                 <tr
                   onClick={(e) => handleClick(e, id)}
-                  className={selected == id ? "selected" : ""}
+                  className={selected === id ? "selected" : ""}
+                  key={id}
                 >
                   <td>{id}</td>
                   <td>{full_name}</td>
@@ -96,9 +97,9 @@ export const TransactionList = () => {
             <button onClick={(e) => handleClick(e, 0)}>{"Close X"}</button>
           </div>
           {Object.entries(txList.find(({ id }) => id === selected) || {}).map(
-            ([key, value]) => {
-              return <p>{`${objRepr[key]} : ${value}`}</p>;
-            }
+            ([key, value]) => (
+              <p key={key}>{`${objRepr[key]} : ${value}`}</p>
+            )
           )}
         </Detail>
       )}

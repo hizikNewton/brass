@@ -4,7 +4,6 @@ import { AppActions } from "context/actions";
 import { FC, useEffect, useState } from "react";
 import {
   fetchAllBanks,
-  getAllTransfer,
   initiateTransfer,
   resolveAccountDetails,
 } from "services/http/fetchers";
@@ -64,6 +63,7 @@ const Home = () => {
         }
       );
     }
+    // eslint-disable-next-line
   }, [accountNumber, accountName]);
 
   const handleSubmit = (e: any) => {
@@ -98,7 +98,7 @@ const Home = () => {
     setTouched((val) => ({ ...val, [name]: true }));
   };
   const handleBlur = () => {
-    Object.keys(touched).map((key) => {
+    Object.keys(touched).forEach((key) => {
       const errors = validate(key as validationType, values);
       setErr((errs) => ({ ...errs, [key]: errors[key] }));
     });

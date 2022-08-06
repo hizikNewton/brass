@@ -10,7 +10,6 @@ import { AppDispatch } from "context/reducer";
 import { AppActions, ComponentActions } from "context/actions";
 import LanDropdown, { languageText } from "components/DropDown/Language";
 import i18next from "utils/i18n";
-import { useTranslation } from "react-i18next";
 
 const getDropdownIcon = (showDropdown: boolean) => {
   if (!showDropdown) return WhiteDropdownIcon;
@@ -103,7 +102,6 @@ const LanguageDropdown = () => {
 const LanguageMenu = () => {
   const dispatch = useDispatch();
   const [showSubMenu, setShowSubMenu] = useState(false);
-  const { t, i18n } = useTranslation();
   return (
     <MobileSubMenuPanel showSubMenu={false}>
       <SimpleButton
