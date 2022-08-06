@@ -49,7 +49,6 @@ const LanguageDropdown = () => {
   const [showLanguage, setShowLanguage] = useState(false);
   const [languageLeft, setLanguageLeft] = useState(0);
   const [languageTop, setLanguageTop] = useState(0);
-  const { t, i18n } = useTranslation();
 
   useLayoutEffect(() => {
     if (showLanguage && language) {
@@ -146,4 +145,7 @@ const LanguageMenu = () => {
   );
 };
 
-export default () => (isMobile() ? <LanguageMenu /> : <LanguageDropdown />);
+const LanguageComp = () =>
+  isMobile() ? <LanguageMenu /> : <LanguageDropdown />;
+
+export default LanguageComp;

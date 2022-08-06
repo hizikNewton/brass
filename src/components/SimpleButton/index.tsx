@@ -5,7 +5,7 @@ const ButtonPanel = styled.div`
   cursor: pointer;
 `;
 
-export default ({
+const SimpleButton = ({
   id,
   className,
   onClick,
@@ -38,3 +38,5 @@ export default ({
     {children}
   </ButtonPanel>
 );
+
+export default SimpleButton;

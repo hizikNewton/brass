@@ -1,5 +1,7 @@
 import { PagePanel } from "./styled";
 
-export default ({ children, style }: { children: any; style?: object }) => (
+const Page = ({ children, style }: { children: any; style?: object }) => (
   <PagePanel style={style}>{children}</PagePanel>
 );
+
+export default Page;

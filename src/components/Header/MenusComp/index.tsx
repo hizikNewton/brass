@@ -29,7 +29,7 @@ const MenuItemLink = ({ menu }: { menu: any }) => {
   );
 };
 
-export default () =>
+const MenusComp = () =>
   isMobile() ? (
     <MobileMenuItem>
       {menuDataList()
@@ -61,3 +61,5 @@ export default () =>
         )}
     </HeaderMenuPanel>
   );
+
+export default MenusComp;

@@ -10,7 +10,7 @@ const ContentPanel = styled.div`
   margin-top: 64px;
   background: #ededed;
 `;
-export default ({ children, style }: { children: ReactNode; style?: any }) => {
+const Content = ({ children, style }: { children: ReactNode; style?: any }) => {
   const {
     components: { mobileMenuVisible },
   } = useAppState();
@@ -20,3 +20,5 @@ export default ({ children, style }: { children: ReactNode; style?: any }) => {
     </ContentPanel>
   );
 };
+
+export default Content;

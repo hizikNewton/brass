@@ -46,7 +46,7 @@ const MobileMenuComp = () => {
   );
 };
 
-export default () => {
+const Header = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const {
@@ -82,3 +82,5 @@ export default () => {
     </HeaderPanel>
   );
 };
+
+export default Header;
